@@ -295,7 +295,12 @@ return {{
       r = '/'
     end
     meta.root = r
-    meta.description = description
+    if meta.desc ~= nil then
+      meta.description = meta.desc
+    end
+    if meta.description == nil then
+      meta.description = description
+    end
     meta.runes = string.format("%0.1f", runes/1000)
     meta.read_time = string.format("%0.1f", runes/400)
 
