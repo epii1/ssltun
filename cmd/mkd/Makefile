@@ -17,6 +17,8 @@ export LUA_FILTER = $(PWD)/desc.lua
 		--template article.tpl \
 		--highlight-style=pygments \
 		--lua-filter $(LUA_FILTER) \
+		--metadata=title:$(shell basename $< .md) \
+		--metadata=date:$(shell stat -c "%w" $<|cut -d' ' -f1) \
 		--from markdown+east_asian_line_breaks \
 		$< -o $@
 

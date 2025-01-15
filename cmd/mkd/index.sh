@@ -26,6 +26,7 @@ echo "articles:" >> $tmp
 
 find $dir -name '*.yml' \
 	! -name "draft-*.yml" \
+	! -name "wip-*.yml" \
 	! -name "index.yml" \
 	! -name "feed.yml" \
 	-exec cat {} + | grep -viE '"title": "(WIP:.+?)?"' |  sort -r >> $tmp
